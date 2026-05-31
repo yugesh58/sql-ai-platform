@@ -56,7 +56,7 @@ graph_builder.add_node("execute_sql",query_executor_node)
 graph_builder.add_node("retry_sql",regenrate_sql_node)
 #edges
 graph_builder.add_conditional_edges(
-    "validate_sql",
+    "validate_sql_router",
     validation_router,
     {
         "execute_sql": "execute_sql",
