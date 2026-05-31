@@ -47,6 +47,8 @@ def query_executor_node(state:SQLState):
 
 
 graph_builder=StateGraph(SQLState)
+
+
 #nodes
 graph_builder.add_node("generate_sql",sql_generation_node)
 
@@ -54,9 +56,11 @@ graph_builder.add_node("validate_sql",validate_sql_node)
 
 graph_builder.add_node("execute_sql",query_executor_node)
 graph_builder.add_node("retry_sql",regenrate_sql_node)
+
+
 #edges
 graph_builder.add_conditional_edges(
-    "validate_sql_router",
+    "validate_sql",
     validation_router,
     {
         "execute_sql": "execute_sql",
