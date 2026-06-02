@@ -1,8 +1,6 @@
 from fastapi import APIRouter
-from app.services.sql_generator import generate_sql
-from app.database.query_executor import run_query
 from app.graphs.sql_graph import sql_graph
-
+from app.memory.conversation_memory import get_memory
 
 router = APIRouter()
 
@@ -15,3 +13,10 @@ async def ask_database(question: str):
     })    
 
     return result
+
+@router.get("/memory")
+async def view_memory():
+
+    return {
+        "memory": get_memory()
+    }
