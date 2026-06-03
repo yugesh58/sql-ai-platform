@@ -301,6 +301,18 @@ http://localhost:8501
 
 ---
 
+## Live API
+
+Backend URL:
+
+https://sql-ai-platform.onrender.com
+
+Swagger Documentation:
+
+https://sql-ai-platform.onrender.com/docs
+
+---
+
 # 🔮 Future Enhancements
 
 * PostgreSQL Support

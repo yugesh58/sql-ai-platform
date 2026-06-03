@@ -195,7 +195,7 @@ if question:
         with st.spinner("Thinking..."):
 
             response = requests.get(
-                "http://127.0.0.1:8000/ask",
+                "https://sql-ai-platform.onrender.com/ask",
                 params={
                     "question": question
                 }
