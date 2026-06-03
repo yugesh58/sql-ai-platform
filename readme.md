@@ -211,7 +211,8 @@ sql-ai-platform/
 
 ## Memory-Based Follow-up Query
 
-![Memory Demo](Screenshots/memory-query-1.png)(Screenshots/memory-query-2.png)
+![Memory Demo](Screenshots/memory-query-1.png)
+![Memory Demo](Screenshots/memory-query-2.png)
 ---
 
 ## Automatic Chart Generation
