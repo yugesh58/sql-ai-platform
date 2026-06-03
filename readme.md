@@ -205,20 +205,18 @@ sql-ai-platform/
 
 ## Conversational Query
 
-*Add screenshot here*
+![Employee Query](Screenshots/employee-query.png)
 
 ---
 
 ## Memory-Based Follow-up Query
 
-*Add screenshot here*
-
+![Memory Demo](Screenshots/memory-query1.png)(Screenshots/memory-query1.png)
 ---
 
 ## Automatic Chart Generation
 
-*Add screenshot here*
-
+![Chart Demo](Screenshots/chart-presentation.png)
 ---
 
 # ▶️ Running Locally
