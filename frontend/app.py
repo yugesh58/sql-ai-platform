@@ -1,6 +1,24 @@
+
 import streamlit as st
 import requests
 import pandas as pd
+
+
+# ============================================
+# CHART HELPER
+# ============================================
+
+def should_show_chart(df):
+
+    if len(df.columns) != 2:
+        return False
+
+    numeric_columns = df.select_dtypes(
+        include=["number", "float", "int"]
+    ).columns
+
+    return len(numeric_columns) == 1
+
 
 # ============================================
 # PAGE CONFIG
@@ -32,6 +50,7 @@ with st.sidebar:
     - Result Summarization
     - SQLite Database
     - Streamlit Chat UI
+    - Automatic Charts
     """)
 
     if st.button("Clear Chat"):
@@ -99,6 +118,16 @@ for message in st.session_state.messages:
                         use_container_width=True
                     )
 
+                    if should_show_chart(df):
+
+                        st.markdown("### Chart")
+
+                        x_col = df.columns[0]
+
+                        chart_df = df.set_index(x_col)
+
+                        st.bar_chart(chart_df)
+
                 else:
 
                     st.warning(
@@ -150,8 +179,6 @@ question = st.chat_input(
 
 if question:
 
-    # Display user message immediately
-
     with st.chat_message("user"):
 
         st.markdown(question)
@@ -193,15 +220,11 @@ if question:
 
         with st.chat_message("assistant"):
 
-            # Summary
-
             if summary:
 
                 st.markdown("### Summary")
 
                 st.info(summary)
-
-            # SQL
 
             st.markdown("### Generated SQL")
 
@@ -209,8 +232,6 @@ if question:
                 sql_query,
                 language="sql"
             )
-
-            # Results
 
             st.markdown("### Results")
 
@@ -223,13 +244,21 @@ if question:
                     use_container_width=True
                 )
 
+                if should_show_chart(df):
+
+                    st.markdown("### Chart")
+
+                    x_col = df.columns[0]
+
+                    chart_df = df.set_index(x_col)
+
+                    st.bar_chart(chart_df)
+
             else:
 
                 st.warning(
                     "No results found"
                 )
-
-            # Workflow
 
             with st.expander("Agent Workflow"):
 
@@ -253,8 +282,6 @@ if question:
                 st.write("Summary")
 
                 st.write(summary)
-
-        # Save Assistant Message
 
         st.session_state.messages.append(
             {
@@ -283,3 +310,4 @@ Error:
 {str(e)}
 """
             )
+
