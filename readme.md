@@ -300,15 +300,15 @@ http://localhost:8501
 ```
 
 ---
+## Live Demo
 
-## Live API
+Frontend:
+https://sql-ai-platform-bpyzx6zsbur3tro2bunahp.streamlit.app
 
-Backend URL:
-
+Backend:
 https://sql-ai-platform.onrender.com
 
-Swagger Documentation:
-
+API Docs:
 https://sql-ai-platform.onrender.com/docs
 
 ---
